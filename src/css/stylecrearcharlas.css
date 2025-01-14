@@ -1,0 +1,97 @@
+.menuContainer{
+    height: 100px;
+}
+
+/* Estilos para el formulario */
+.form {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px; /* Máximo tamaño para pantallas grandes */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .form {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .label {
+        font-size: 16px;
+    }
+
+    .inputField, .textareaField, .submitButton {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .textareaField {
+        min-height: 120px;
+    }
+}
+
+/* Grupo de formulario con margen ajustado */
+.formGroup {
+    margin-bottom: 20px;
+}
+
+/* Etiquetas de campos */
+.label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+/* Estilo de los campos de entrada */
+.inputField, .textareaField {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Ajustes para el área de texto */
+.textareaField {
+    height: 50px;
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Mensajes de error */
+.error {
+    color: #f00;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el botón de enviar */
+.submitButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #1da1f2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Cambiar el tamaño de los botones en pantallas móviles */
+@media (max-width: 480px) {
+    .submitButton {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
+

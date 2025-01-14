@@ -1,0 +1,64 @@
+
+.charla-container {
+  border: 1px solid #333;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 12px; 
+  background-color: #17171a;
+  color: #ecf0f1; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease; 
+  overflow: hidden;
+}
+
+.charla-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); 
+}
+
+
+.charla-title {
+  font-size: 24px;
+  font-weight: 700; 
+  margin-bottom: 10px;
+  color: #623977; 
+}
+
+.charla-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #bdc3c7; 
+  margin-bottom: 10px;
+}
+
+.charla-details {
+  font-size: 14px;
+  margin: 5px 0;
+  color: #ecf0f1;
+}
+
+.charla-details strong {
+  font-weight: 600; 
+  color: #623977; 
+}
+
+.charla-button {
+  padding: 10px 20px;
+  background-color: #08395a; 
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.charla-button:hover {
+  background-color: #194463; 
+}
+
+.link{
+  color: rgba(74, 121, 182, 0.897);
+  text-decoration: none;
+}
