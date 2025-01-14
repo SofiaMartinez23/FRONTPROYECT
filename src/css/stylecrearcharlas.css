@@ -95,3 +95,13 @@
     }
 }
 
+/* Estilo personalizado para el NavLink */
+.no-link-style {
+    text-decoration: none; /* Elimina la subrayado */
+    color: inherit; /* Hereda el color del texto del botón (que es blanco en este caso) */
+}
+
+.no-link-style:hover {
+    color: inherit; /* Evita que el color cambie al pasar el ratón */
+    text-decoration: none; /* Elimina la subrayada al pasar el ratón */
+}

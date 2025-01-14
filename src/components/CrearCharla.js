@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Global from './Global';  
 import Menu from './Menu';
+import { NavLink } from 'react-router-dom';
 
 export default class CrearCharla extends Component {
     url = Global.urlApiCharlas;
@@ -80,8 +81,10 @@ export default class CrearCharla extends Component {
     render() {
         return (
             <div className="crear-charla-container">
-                {/*<Menu />*/}
-                <h2>Crear Nueva Charla</h2>
+                <div>
+                    {/*<Menu />*/}
+                    <h2>Crear Nueva Charla</h2>
+                </div>
                 <form onSubmit={this.crearCharla}>
                     <div className="form-group">
                         <label htmlFor="titulo">Título</label>
@@ -163,6 +166,9 @@ export default class CrearCharla extends Component {
 
                     <button type="submit" className="btn btn-primary">
                         Crear Charla
+                    </button>
+                    <button type="submit" className="btn btn-danger">
+                        <NavLink to={"/charlas"} className="no-link-style">Atras</NavLink>
                     </button>
                 </form>
                 

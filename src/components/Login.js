@@ -17,9 +17,13 @@ export default class Login extends Component {
     cajaContrasenya = React.createRef();
     cajaRol = React.createRef();
 
+    cajaKeyProfe = React.createRef();
+
+
     state = {
         status: false,
-        usuarios: []
+        usuarios: [],
+        rol: '1',
     }
 
 
@@ -40,6 +44,8 @@ export default class Login extends Component {
         let nombre = this.cajaNombre.current.value;
         let email = this.cajaEmail.current.value;
         let contrasenya = this.cajaContrasenya.current.value;
+        let rol = this.cajaRol.current.value;
+        console.log(rol)
 
         let request = "api/usuarios/newalumno/" + idCurso;
         console.log(this.url + request)
@@ -52,7 +58,45 @@ export default class Login extends Component {
             estadoUsuario: true,
             imagen: "",
             password: contrasenya,
-            idRole: 2
+            idRole: rol
+        }
+        console.log(usernuevo);
+
+        axios.post(this.url + request, usernuevo).then(response => {
+            console.log(response)
+            this.setState({
+                status: true,
+                usuarios: response    
+            })
+            
+        }).catch(err => {
+            console.log(err)
+            alert("Este usuario ya existe")
+        });
+    }
+
+    crearProfesor = (e) => {
+        e.preventDefault();
+
+        let key = this.cajaKeyProfe.current.value;
+        let nombre = this.cajaNombre.current.value;
+        let email = this.cajaEmail.current.value;
+        let contrasenya = this.cajaContrasenya.current.value;
+        let rol = this.cajaRol.current.value;
+        console.log(rol)
+
+        let request = "api/usuarios/newprofesor/" + key;
+        console.log(this.url + request)
+
+        let usernuevo = {
+            idUsuario: 0,
+            nombre: nombre,
+            apellidos: "",
+            email: email,
+            estadoUsuario: true,
+            imagen: "",
+            password: contrasenya,
+            idRole: rol
         }
         console.log(usernuevo);
 
@@ -92,18 +136,35 @@ export default class Login extends Component {
             })
         })
     }
+    handleRoleChange = (e) => {
+        this.setState({ rol: e.target.value });
+    }
 
     render() {
         return (
             <div className="main">
-                
+
                 {this.state.status === true && <Navigate to="/charlas" />}
 
                 <input type="checkbox" id="chk" aria-hidden="true" />
                 <div className="signup">
                     <form onSubmit={this.crearUsuario}>
                         <label htmlFor="chk" aria-hidden="true">Sign up</label>
-                        <input type="text" name="txt" placeholder="Id Curso" required ref={this.cajaIdCurso} />
+                        
+                        <select ref={this.cajaRol} value={this.state.rol} onChange={this.handleRoleChange}>
+                            <option value="2">Alumno</option>
+                            <option value="1">Profesor</option>
+                        </select>
+
+                        {/* Si el rol es "Alumno", requerir "Id Curso", si es "Profesor", no */}
+                        {this.state.rol === '1' && (
+                            <input type="text" name="txt" placeholder="Key Profesor" required ref={this.cajaKeyProfe} />
+                        )}
+                        {this.state.rol === '2' && (
+                            <input type="text" name="txt" placeholder="Id Curso" required ref={this.cajaIdCurso} />
+                        
+                        )}
+
                         <input type="text" name="txt" placeholder="User name" required ref={this.cajaNombre} />
                         <input type="email" name="email" placeholder="Email" required ref={this.cajaEmail} />
                         <input type="password" name="pswd" placeholder="Password" required ref={this.cajaContrasenya} />
